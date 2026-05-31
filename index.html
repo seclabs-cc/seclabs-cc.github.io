@@ -2,9 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>seclabs.cc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Labs</title>
+    <meta name="description" content="Only by knowing evil can you truly fight it, and here you will learn how. Cybersecurity initiatives, guides, certifications and setups.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Security Labs">
+    <meta property="og:description" content="Only by knowing evil can you truly fight it, and here you will learn how.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seclabs.cc">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/toolbox_card.png">
 </head>
 <body>
-    <h1>seclabs.cc is coming soon.</h1>
+
+    <!-- Header Navbar -->
+    <header class="navbar" id="main-header">
+        <a href="index.html" class="logo-container" id="brand-logo">
+            <span class="logo-text">SECLABS.CC</span>
+            <span class="logo-tag">SEC-LABS</span>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-item active"><a href="index.html" id="nav-home">Home</a></li>
+                <li class="nav-item"><a href="whoami.html" id="nav-whoami">whoami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Security Labs</h1>
+            <p class="hero-subtitle">Embrace your dark side ...</p>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        
+        <!-- Project Mission -->
+        <section class="mission-box" id="mission">
+            <div class="mission-title">Project mission</div>
+            <p class="mission-text">"Only by knowing evil can you truly fight it, and here you will learn how."</p>
+        </section>
+
+        <!-- Ongoing Initiatives -->
+        <section id="initiatives">
+            <h2 class="section-title">Ongoing initiatives</h2>
+            <div class="initiatives-container">
+                
+                <!-- Red Book Card -->
+                <div class="initiative-card red">
+                    <div class="initiative-info">
+                        <h3 class="initiative-name">The <span>Red</span> Book</h3>
+                        <p class="initiative-desc">Follow my journey into red teaming. All my documentation and thinking method can be found there.</p>
+                    </div>
+                    <a href="https://seclabs-cc.gitbook.io/redbook/" target="_blank" rel="noopener noreferrer" class="initiative-btn" id="link-redbook">Explore</a>
+                </div>
+
+                <!-- Hack the Box Card -->
+                <div class="initiative-card green">
+                    <div class="initiative-info">
+                        <h3 class="initiative-name"><span>Hack</span> the Box</h3>
+                        <p class="initiative-desc">Solving HTB machines and giving my inputs along the way.</p>
+                    </div>
+                    <a href="https://seclabs-cc.gitbook.io/hackthebox/" target="_blank" rel="noopener noreferrer" class="initiative-btn" id="link-htb">Explore</a>
+                </div>
+
+                <!-- Try Hack Me Card -->
+                <div class="initiative-card purple">
+                    <div class="initiative-info">
+                        <h3 class="initiative-name">Try <span>Hack Me</span></h3>
+                        <p class="initiative-desc">Solving THM paths.</p>
+                    </div>
+                    <a href="https://seclabs-cc.gitbook.io/tryhackme/" target="_blank" rel="noopener noreferrer" class="initiative-btn" id="link-thm">Explore</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Open Directories -->
+        <section id="directories">
+            <h2 class="section-title">Open Directories</h2>
+            <div class="directories-grid">
+                
+                <!-- Card 1: Library -->
+                <a href="https://github.com/seclabs-cc/athenaeum" target="_blank" rel="noopener noreferrer" class="directory-card" id="card-library">
+                    <div class="directory-img-wrapper">
+                        <img src="images/library_card.png" alt="Library / Athenaeum" class="directory-img">
+                    </div>
+                    <div class="directory-info">
+                        <span class="directory-title">Library / Athenaeum</span>
+                    </div>
+                </a>
+
+                <!-- Card 2: Certification Path -->
+                <a href="https://pauljerimy.com/security-certification-roadmap/" target="_blank" rel="noopener noreferrer" class="directory-card" id="card-certification">
+                    <div class="directory-img-wrapper">
+                        <img src="images/cert_card.png" alt="Certification Path" class="directory-img">
+                    </div>
+                    <div class="directory-info">
+                        <span class="directory-title">Certification Path</span>
+                    </div>
+                </a>
+
+                <!-- Card 3: Personal Setup -->
+                <a href="https://github.com/renantmagalhaes/workstation" target="_blank" rel="noopener noreferrer" class="directory-card" id="card-setup">
+                    <div class="directory-img-wrapper">
+                        <img src="images/setup_card.png" alt="Personal Setup" class="directory-img">
+                    </div>
+                    <div class="directory-info">
+                        <span class="directory-title">Personal Setup</span>
+                    </div>
+                </a>
+
+                <!-- Card 4: Toolbox -->
+                <a href="https://github.com/seclabs-cc/toolbox" target="_blank" rel="noopener noreferrer" class="directory-card" id="card-toolbox">
+                    <div class="directory-img-wrapper">
+                        <img src="images/toolbox_card.png" alt="Toolbox" class="directory-img">
+                    </div>
+                    <div class="directory-info">
+                        <span class="directory-title">Toolbox</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Questions Section -->
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">Questions?</h2>
+            <p class="contact-subtitle">Contact renan@seclabs.cc to get more information about the project</p>
+            <a href="mailto:renan@seclabs.cc" class="contact-btn" id="btn-take-action">Take action</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-info">
+            <span>[renan@seclabs.cc]</span>
+            <span>|</span>
+            <span>[Space Sector 2814]</span>
+        </div>
+    </footer>
+
 </body>
 </html>
