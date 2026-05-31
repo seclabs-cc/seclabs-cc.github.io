@@ -3,15 +3,17 @@
 :root {
     --bg-darker: #050608;
     --bg-dark: #0a0c10;
+    --bg-nav: rgba(5, 6, 8, 0.75);
     --bg-card: rgba(16, 20, 28, 0.65);
     --border-color: rgba(255, 255, 255, 0.06);
-    --border-hover: rgba(6, 182, 212, 0.3);
+    --border-hover: rgba(var(--accent-rgb), 0.3);
     
     --text-primary: #f3f4f6;
     --text-secondary: #9ca3af;
     --text-muted: #6b7280;
     
-    --cyan: #06b6d4;
+    --accent: #6366f1;
+    --accent-rgb: 99, 102, 241;
     --red: #ef4444;
     --green: #10b981;
     --purple: #8b5cf6;
@@ -50,7 +52,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(5, 6, 8, 0.75);
+    background: var(--bg-nav);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-color);
     padding: 0.75rem 2rem;
@@ -78,11 +80,11 @@ a {
 .logo-tag {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    background: rgba(6, 182, 212, 0.1);
-    color: var(--cyan);
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent);
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
-    border: 1px solid rgba(6, 182, 212, 0.2);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
 }
 
 .nav-links {
@@ -107,7 +109,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--cyan);
+    background-color: var(--accent);
     transition: var(--transition);
 }
 
@@ -121,7 +123,7 @@ a {
 }
 
 .nav-item.active a {
-    color: var(--cyan);
+    color: var(--accent);
 }
 
 /* Banner Hero */
@@ -168,7 +170,7 @@ a {
 
 .hero-subtitle {
     font-family: var(--font-mono);
-    color: var(--cyan);
+    color: var(--accent);
     font-size: 1.1rem;
     letter-spacing: 0.1em;
 }
@@ -198,7 +200,7 @@ a {
     display: block;
     width: 40px;
     height: 3px;
-    background: var(--cyan);
+    background: var(--accent);
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
@@ -225,18 +227,18 @@ a {
     left: 0;
     width: 3px;
     height: 100%;
-    background: var(--cyan);
+    background: var(--accent);
 }
 
 .mission-box:hover {
     border-color: var(--border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.15);
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.15);
 }
 
 .mission-title {
     font-family: var(--font-heading);
-    color: var(--cyan);
+    color: var(--accent);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -426,16 +428,16 @@ a {
 .directory-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(6, 182, 212, 0.18);
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.18);
 }
 
 .directory-card:hover .directory-title {
-    color: var(--cyan);
+    color: var(--accent);
 }
 
 /* Contact / Questions Section */
 .contact-section {
-    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.08) 0%, rgba(5, 6, 8, 0) 70%);
+    background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.08) 0%, rgba(5, 6, 8, 0) 70%);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 3rem 2rem;
@@ -445,8 +447,8 @@ a {
 }
 
 .contact-section:hover {
-    border-color: rgba(6, 182, 212, 0.25);
-    box-shadow: 0 4px 30px rgba(6, 182, 212, 0.05);
+    border-color: rgba(var(--accent-rgb), 0.25);
+    box-shadow: 0 4px 30px rgba(var(--accent-rgb), 0.05);
 }
 
 .contact-subtitle {
@@ -468,9 +470,9 @@ a {
 }
 
 .contact-btn:hover {
-    background-color: var(--cyan);
+    background-color: var(--accent);
     color: #fff;
-    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.6);
     transform: translateY(-2px);
 }
 
@@ -566,3 +568,167 @@ a {
         gap: 0.5rem;
     }
 }
+
+/* --- Theme Toggle & Light Mode Overrides --- */
+
+/* Light Mode Variables Override */
+[data-theme="light"] {
+    --bg-darker: #f8fafc;
+    --bg-dark: #ffffff;
+    --bg-nav: rgba(255, 255, 255, 0.85);
+    --bg-card: #ffffff;
+    --border-color: rgba(15, 23, 42, 0.08);
+    --border-hover: rgba(var(--accent-rgb), 0.5);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-rgb: 79, 70, 229;
+}
+
+/* Light Theme Navigation overrides */
+[data-theme="light"] .nav-item a {
+    color: #475569;
+}
+[data-theme="light"] .nav-item a:hover {
+    color: #0f172a;
+}
+[data-theme="light"] .nav-item.active a {
+    color: var(--accent);
+}
+
+/* Clean Technical Hero for Light Mode */
+[data-theme="light"] .hero-banner {
+    background: url('images/header_banner_light.png') center/cover no-repeat;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+[data-theme="light"] .hero-banner::before {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(248, 250, 252, 0.98) 100%);
+    opacity: 1;
+}
+[data-theme="light"] .hero-title {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+[data-theme="light"] .hero-subtitle {
+    color: var(--accent);
+}
+
+[data-theme="light"] .logo-text {
+    background: linear-gradient(to right, #0f172a, #334155);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Cards & Surface Box Shadows for Light Mode */
+[data-theme="light"] .mission-box {
+    background: #ffffff;
+    box-shadow: 0 4px 25px rgba(15, 23, 42, 0.04);
+}
+[data-theme="light"] .mission-box:hover {
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.12);
+}
+[data-theme="light"] .mission-text {
+    color: #0f172a;
+}
+
+[data-theme="light"] .initiative-card {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+[data-theme="light"] .initiative-desc {
+    color: #475569;
+}
+[data-theme="light"] .initiative-card.red:hover {
+    border-color: rgba(239, 68, 68, 0.25);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.1);
+}
+[data-theme="light"] .initiative-card.green:hover {
+    border-color: rgba(16, 185, 129, 0.25);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+}
+[data-theme="light"] .initiative-card.purple:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
+}
+
+[data-theme="light"] .directory-card {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+[data-theme="light"] .directory-card:hover {
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.12);
+}
+[data-theme="light"] .directory-info {
+    background: #ffffff;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+[data-theme="light"] .directory-title {
+    color: #0f172a;
+}
+[data-theme="light"] .directory-card:hover .directory-title {
+    color: var(--accent);
+}
+
+[data-theme="light"] .contact-section {
+    background: radial-gradient(circle at center, rgba(var(--accent-rgb), 0.04) 0%, rgba(248, 250, 252, 0) 70%);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+}
+[data-theme="light"] .contact-section:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.06);
+}
+[data-theme="light"] .contact-btn {
+    background-color: #0f172a;
+    color: #ffffff;
+}
+[data-theme="light"] .contact-btn:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+[data-theme="light"] .footer {
+    background: #f1f5f9;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+[data-theme="light"] .footer-info span {
+    color: #475569;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    padding: 0;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(var(--accent-rgb), 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.25);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+
+
