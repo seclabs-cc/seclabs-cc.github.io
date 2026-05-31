@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap');
 
 :root {
-    --bg-darker: #050608;
-    --bg-dark: #0a0c10;
-    --bg-nav: rgba(5, 6, 8, 0.75);
-    --bg-card: rgba(16, 20, 28, 0.65);
-    --border-color: rgba(255, 255, 255, 0.06);
-    --border-hover: rgba(var(--accent-rgb), 0.3);
+    --bg-darker: #020204;
+    --bg-dark: #0b0d13;
+    --bg-nav: rgba(2, 2, 4, 0.8);
+    --bg-card: rgba(11, 13, 19, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(var(--accent-rgb), 0.35);
     
-    --text-primary: #f3f4f6;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
     
     --accent: #6366f1;
     --accent-rgb: 99, 102, 241;
@@ -163,9 +163,20 @@ a {
     font-weight: 900;
     letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
+}
+
+.hero-title .title-accent {
+    background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-title .title-main {
     background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .hero-subtitle {
@@ -573,16 +584,16 @@ a {
 
 /* Light Mode Variables Override */
 [data-theme="light"] {
-    --bg-darker: #f8fafc;
+    --bg-darker: #f1f5f9;
     --bg-dark: #ffffff;
-    --bg-nav: rgba(255, 255, 255, 0.85);
+    --bg-nav: rgba(255, 255, 255, 0.9);
     --bg-card: #ffffff;
-    --border-color: rgba(15, 23, 42, 0.08);
-    --border-hover: rgba(var(--accent-rgb), 0.5);
+    --border-color: rgba(15, 23, 42, 0.12);
+    --border-hover: rgba(var(--accent-rgb), 0.6);
     
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --text-secondary: #334155;
+    --text-muted: #475569;
     --accent: #4f46e5;
     --accent-rgb: 79, 70, 229;
 }
@@ -607,10 +618,17 @@ a {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 0%, rgba(248, 250, 252, 0.98) 100%);
     opacity: 1;
 }
-[data-theme="light"] .hero-title {
-    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+[data-theme="light"] .hero-title .title-accent {
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+[data-theme="light"] .hero-title .title-main {
+    background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 [data-theme="light"] .hero-subtitle {
     color: var(--accent);
