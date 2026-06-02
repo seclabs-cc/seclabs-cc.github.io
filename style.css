@@ -749,4 +749,58 @@ a {
     transition: var(--transition);
 }
 
+/* GitHub Link Button */
+.github-link-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    padding: 0;
+}
+
+[data-theme="light"] .github-link-btn {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.github-link-btn:hover {
+    background: rgba(var(--accent-rgb), 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.25);
+    transform: scale(1.05);
+    color: var(--text-primary);
+}
+
+.github-link-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: var(--transition);
+}
+
+/* Footer Link styling */
+.footer-info a {
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.footer-info a:hover {
+    color: var(--accent);
+}
+
+[data-theme="light"] .footer-info a {
+    color: #475569;
+}
+
+[data-theme="light"] .footer-info a:hover {
+    color: var(--accent);
+}
+
+
 
