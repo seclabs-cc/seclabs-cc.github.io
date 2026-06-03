@@ -419,6 +419,79 @@ a {
     animation: floatIcon 3.5s ease-in-out infinite;
 }
 
+.directory-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.directory-svg .bg-rect {
+    fill: var(--bg-darker);
+    transition: var(--transition);
+}
+
+.directory-svg .pattern-grid {
+    stroke: var(--border-color);
+    stroke-width: 0.75px;
+    opacity: 0.35;
+    transition: var(--transition);
+}
+
+.directory-svg .icon-main {
+    fill: none;
+    stroke: var(--text-secondary);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: var(--transition);
+}
+
+.directory-svg .icon-accent {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: var(--transition);
+}
+
+.directory-svg .icon-accent-filled {
+    fill: var(--accent);
+    opacity: 0.15;
+    transition: var(--transition);
+}
+
+.directory-card:hover .directory-svg {
+    transform: scale(1.05);
+}
+
+.directory-card:hover .directory-svg .pattern-grid {
+    opacity: 0.65;
+    stroke: var(--accent);
+}
+
+.directory-card:hover .directory-svg .icon-main {
+    stroke: var(--text-primary);
+}
+
+.directory-card:hover .directory-svg .icon-accent {
+    stroke: var(--accent);
+    filter: drop-shadow(0 0 4px rgba(var(--accent-rgb), 0.6));
+}
+
+.directory-card:hover .directory-svg .icon-accent-filled {
+    fill: var(--accent);
+    opacity: 0.25;
+}
+
+.directory-card:hover .directory-svg .animate-float {
+    animation: floatIcon 3.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
 /* Card-Specific Hover Color Themes */
 /* Library (Purple) */
 .directory-card#card-library:hover {
