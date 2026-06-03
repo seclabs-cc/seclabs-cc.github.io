@@ -412,9 +412,55 @@ a {
     filter: brightness(0.85);
 }
 
+/* Hover scale and float animation */
 .directory-card:hover .directory-img {
     transform: scale(1.05);
     filter: brightness(1.05);
+    animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+/* Card-Specific Hover Color Themes */
+/* Library (Purple) */
+.directory-card#card-library:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.22);
+}
+.directory-card#card-library:hover .directory-title {
+    color: var(--purple);
+}
+
+/* Certification Path (Orange) */
+.directory-card#card-certification:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 12px 30px rgba(249, 115, 22, 0.22);
+}
+.directory-card#card-certification:hover .directory-title {
+    color: var(--orange);
+}
+
+/* Personal Setup (Indigo/Accent) */
+.directory-card#card-setup:hover {
+    border-color: rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.22);
+}
+.directory-card#card-setup:hover .directory-title {
+    color: var(--accent);
+}
+
+/* Toolbox (Green) */
+.directory-card#card-toolbox:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.22);
+}
+.directory-card#card-toolbox:hover .directory-title {
+    color: var(--green);
+}
+
+/* Micro-animations */
+@keyframes floatIcon {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
 }
 
 .directory-info {
