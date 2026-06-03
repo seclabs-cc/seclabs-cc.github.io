@@ -1,186 +1,434 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Security Labs</title>
-    <meta name="description"
-        content="Security Labs is a dedicated portal documenting cybersecurity research, hands-on lab environments, certifications, and offensive engineering practices.">
-    <link rel="stylesheet" href="style.css">
+    <meta
+      name="description"
+      content="Security Labs is a dedicated portal documenting cybersecurity research, hands-on lab environments, certifications, and offensive engineering practices."
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Security Labs">
-    <meta property="og:description" content="Understanding advanced attack vectors to build more resilient defenses through open-source documentation, labs, and hands-on validation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seclabs.cc">
+    <meta
+      property="og:title"
+      content="Security Labs"
+    />
+    <meta
+      property="og:description"
+      content="Understanding advanced attack vectors to build more resilient defenses through open-source documentation, labs, and hands-on validation."
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:url"
+      content="https://seclabs.cc"
+    />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/toolbox_card.png">
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/toolbox_card.png"
+    />
     <!-- Theme Script to Prevent Flickering -->
     <script>
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
+      const savedTheme =
+        localStorage.getItem("theme") ||
+        "dark";
+      document.documentElement.setAttribute(
+        "data-theme",
+        savedTheme
+      );
     </script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- Header Navbar -->
-    <header class="navbar" id="main-header">
-        <a href="index.html" class="logo-container" id="brand-logo">
-            <span class="logo-tag">SECLABS.CC</span>
-        </a>
-        <nav style="display: flex; align-items: center; gap: 2rem;">
-            <ul class="nav-links">
-                <li class="nav-item active"><a href="index.html" id="nav-home">Home</a></li>
-                <li class="nav-item"><a href="whoami.html" id="nav-whoami">whoami</a></li>
-            </ul>
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <a href="https://github.com/seclabs-cc/" target="_blank" rel="noopener noreferrer" class="github-link-btn" aria-label="GitHub Organization" id="nav-github">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                    </svg>
-                </a>
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                    <svg id="theme-toggle-sun" viewBox="0 0 24 24">
-                        <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
-                    </svg>
-                    <svg id="theme-toggle-moon" viewBox="0 0 24 24" style="display: none;">
-                        <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-9 8.3-9.9.5-.1.9.3.8.8-.4 1.5-.2 3 .6 4.3 1.2 1.9 3.3 3.1 5.6 3.1 1.6 0 3.2-.5 4.5-1.4.4-.3.9 0 .8.5-.8 4.8-4.9 8.4-9.8 8.6-1.1.1-2.1 0-3.2 0zm7.2-5c2.4-1.2 4.1-3.6 4.5-6.5-1.7 1-3.6 1.5-5.5 1.5-3.3 0-6.3-1.8-7.9-4.7-.6-1.1-.9-2.3-.9-3.5C5.8 4.8 4 7.6 4 10.8c0 4.4 3.6 8 8 8 .3 0 .6 0 .9-.1 2.8-.2 5.3-1.8 6.6-4.5z"/>
-                    </svg>
-                </button>
-            </div>
-        </nav>
+    <header
+      class="navbar"
+      id="main-header"
+    >
+      <a
+        href="index.html"
+        class="logo-container"
+        id="brand-logo"
+      >
+        <span class="logo-tag"
+          >SECLABS.CC</span
+        >
+      </a>
+      <nav
+        style="
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        "
+      >
+        <ul class="nav-links">
+          <li class="nav-item active">
+            <a
+              href="index.html"
+              id="nav-home"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="whoami.html"
+              id="nav-whoami"
+              >whoami</a
+            >
+          </li>
+        </ul>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+          "
+        >
+          <a
+            href="https://github.com/seclabs-cc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-link-btn"
+            aria-label="GitHub Organization"
+            id="nav-github"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+              />
+            </svg>
+          </a>
+          <button
+            id="theme-toggle"
+            class="theme-toggle-btn"
+            aria-label="Toggle theme"
+          >
+            <svg
+              id="theme-toggle-sun"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.01c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"
+              />
+            </svg>
+            <svg
+              id="theme-toggle-moon"
+              viewBox="0 0 24 24"
+              style="display: none"
+            >
+              <path
+                d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-9 8.3-9.9.5-.1.9.3.8.8-.4 1.5-.2 3 .6 4.3 1.2 1.9 3.3 3.1 5.6 3.1 1.6 0 3.2-.5 4.5-1.4.4-.3.9 0 .8.5-.8 4.8-4.9 8.4-9.8 8.6-1.1.1-2.1 0-3.2 0zm7.2-5c2.4-1.2 4.1-3.6 4.5-6.5-1.7 1-3.6 1.5-5.5 1.5-3.3 0-6.3-1.8-7.9-4.7-.6-1.1-.9-2.3-.9-3.5C5.8 4.8 4 7.6 4 10.8c0 4.4 3.6 8 8 8 .3 0 .6 0 .9-.1 2.8-.2 5.3-1.8 6.6-4.5z"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <!-- Hero Banner -->
-    <section class="hero-banner" id="hero">
-        <div class="hero-content">
-            <h1 class="hero-title"><span class="title-accent">Security</span> <span class="title-main">Labs</span></h1>
-            <p class="hero-subtitle">Advanced security research & offensive engineering</p>
-        </div>
+    <section
+      class="hero-banner"
+      id="hero"
+    >
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-accent"
+            >Security</span
+          >
+          <span class="title-main"
+            >Labs</span
+          >
+        </h1>
+        <p class="hero-subtitle">
+          Advanced security research &
+          offensive engineering
+        </p>
+      </div>
     </section>
 
     <!-- Main Content Container -->
     <main class="container">
+      <!-- Project Mission -->
+      <section
+        class="mission-box"
+        id="mission"
+      >
+        <div class="mission-title">
+          Project mission
+        </div>
+        <p class="mission-text">
+          "Understanding advanced attack
+          vectors to build more
+          resilient defenses through
+          open-source documentation,
+          labs, and hands-on
+          validation."
+        </p>
+      </section>
 
-        <!-- Project Mission -->
-        <section class="mission-box" id="mission">
-            <div class="mission-title">Project mission</div>
-            <p class="mission-text">"Understanding advanced attack vectors to build more resilient defenses through open-source documentation, labs, and hands-on validation."</p>
-        </section>
-
-        <!-- Ongoing Initiatives -->
-        <section id="initiatives">
-            <h2 class="section-title">Ongoing initiatives</h2>
-            <div class="initiatives-container">
-
-                <!-- Red Book Card -->
-                <div class="initiative-card red">
-                    <div class="initiative-info">
-                        <h3 class="initiative-name">The <span>Red</span> Book</h3>
-                        <p class="initiative-desc">Follow my journey into red teaming. All my documentation and thinking
-                            method can be found there.</p>
-                    </div>
-                    <a href="https://insecurecodes.gitbook.io/redbook" target="_blank" rel="noopener noreferrer"
-                        class="initiative-btn" id="link-redbook">Explore</a>
-                </div>
-
-                <!-- Hack the Box Card -->
-                <div class="initiative-card green">
-                    <div class="initiative-info">
-                        <h3 class="initiative-name"><span>Hack</span> the Box</h3>
-                        <p class="initiative-desc">Solving HTB machines and giving my inputs along the way.</p>
-                    </div>
-                    <a href="https://insecurecodes.gitbook.io/hackthebox/" target="_blank" rel="noopener noreferrer"
-                        class="initiative-btn" id="link-htb">Explore</a>
-                </div>
-
-                <!-- Try Hack Me Card -->
-                <div class="initiative-card purple">
-                    <div class="initiative-info">
-                        <h3 class="initiative-name">Try <span>Hack Me</span></h3>
-                        <p class="initiative-desc">Solving THM paths.</p>
-                    </div>
-                    <a href="https://insecurecodes.gitbook.io/tryhackme/" target="_blank" rel="noopener noreferrer"
-                        class="initiative-btn" id="link-thm">Explore</a>
-                </div>
-
+      <!-- Ongoing Initiatives -->
+      <section id="initiatives">
+        <h2 class="section-title">
+          Ongoing initiatives
+        </h2>
+        <div
+          class="initiatives-container"
+        >
+          <!-- Red Book Card -->
+          <div
+            class="initiative-card red"
+          >
+            <div
+              class="initiative-info"
+            >
+              <h3
+                class="initiative-name"
+              >
+                The
+                <span>Red</span> Book
+              </h3>
+              <p
+                class="initiative-desc"
+              >
+                Follow my journey into
+                red teaming. All my
+                documentation and
+                thinking method can be
+                found there.
+              </p>
             </div>
-        </section>
+            <a
+              href="https://seclabs.cc/redbook/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="initiative-btn"
+              id="link-redbook"
+              >Explore</a
+            >
+          </div>
 
-        <!-- Open Directories -->
-        <section id="directories">
-            <h2 class="section-title">Open Directories</h2>
-            <div class="directories-grid">
-
-                <!-- Card 1: Library -->
-                <a href="https://github.com/seclabs-cc/codex" target="_blank" rel="noopener noreferrer"
-                    class="directory-card" id="card-library">
-                    <div class="directory-img-wrapper">
-                        <img src="images/library_card.png" alt="Library / Codex" class="directory-img">
-                    </div>
-                    <div class="directory-info">
-                        <span class="directory-title">Library / Codex</span>
-                    </div>
-                </a>
-
-                <!-- Card 2: Certification Path -->
-                <a href="https://pauljerimy.com/security-certification-roadmap/" target="_blank"
-                    rel="noopener noreferrer" class="directory-card" id="card-certification">
-                    <div class="directory-img-wrapper">
-                        <img src="images/cert_card.png" alt="Certification Path" class="directory-img">
-                    </div>
-                    <div class="directory-info">
-                        <span class="directory-title">Certification Path</span>
-                    </div>
-                </a>
-
-                <!-- Card 3: Personal Setup -->
-                <a href="https://github.com/renantmagalhaes/workstation" target="_blank" rel="noopener noreferrer"
-                    class="directory-card" id="card-setup">
-                    <div class="directory-img-wrapper">
-                        <img src="images/setup_card.png" alt="Personal Setup" class="directory-img">
-                    </div>
-                    <div class="directory-info">
-                        <span class="directory-title">Personal Setup</span>
-                    </div>
-                </a>
-
-                <!-- Card 4: Toolbox -->
-                <a href="https://github.com/seclabs-cc/toolbox" target="_blank" rel="noopener noreferrer"
-                    class="directory-card" id="card-toolbox">
-                    <div class="directory-img-wrapper">
-                        <img src="images/toolbox_card.png" alt="Toolbox" class="directory-img">
-                    </div>
-                    <div class="directory-info">
-                        <span class="directory-title">Toolbox</span>
-                    </div>
-                </a>
-
+          <!-- Hack the Box Card -->
+          <div
+            class="initiative-card green"
+          >
+            <div
+              class="initiative-info"
+            >
+              <h3
+                class="initiative-name"
+              >
+                <span>Hack</span> the
+                Box
+              </h3>
+              <p
+                class="initiative-desc"
+              >
+                Solving HTB machines and
+                giving my inputs along
+                the way.
+              </p>
             </div>
-        </section>
+            <a
+              href="https://insecurecodes.gitbook.io/hackthebox/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="initiative-btn"
+              id="link-htb"
+              >Explore</a
+            >
+          </div>
 
-        <!-- Questions Section -->
-        <section class="contact-section" id="contact">
-            <h2 class="section-title">Questions?</h2>
-            <p class="contact-subtitle">Contact renan@seclabs.cc to get more information about the project</p>
-            <a href="mailto:renan@seclabs.cc" class="contact-btn" id="btn-take-action">Take action</a>
-        </section>
+          <!-- Try Hack Me Card -->
+          <div
+            class="initiative-card purple"
+          >
+            <div
+              class="initiative-info"
+            >
+              <h3
+                class="initiative-name"
+              >
+                Try <span>Hack Me</span>
+              </h3>
+              <p
+                class="initiative-desc"
+              >
+                Solving THM paths.
+              </p>
+            </div>
+            <a
+              href="https://insecurecodes.gitbook.io/tryhackme/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="initiative-btn"
+              id="link-thm"
+              >Explore</a
+            >
+          </div>
+        </div>
+      </section>
 
+      <!-- Open Directories -->
+      <section id="directories">
+        <h2 class="section-title">
+          Open Directories
+        </h2>
+        <div class="directories-grid">
+          <!-- Card 1: Library -->
+          <a
+            href="https://github.com/seclabs-cc/codex"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="directory-card"
+            id="card-library"
+          >
+            <div
+              class="directory-img-wrapper"
+            >
+              <img
+                src="images/library_card.png"
+                alt="Library / Codex"
+                class="directory-img"
+              />
+            </div>
+            <div class="directory-info">
+              <span
+                class="directory-title"
+                >Library / Codex</span
+              >
+            </div>
+          </a>
+
+          <!-- Card 2: Certification Path -->
+          <a
+            href="https://pauljerimy.com/security-certification-roadmap/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="directory-card"
+            id="card-certification"
+          >
+            <div
+              class="directory-img-wrapper"
+            >
+              <img
+                src="images/cert_card.png"
+                alt="Certification Path"
+                class="directory-img"
+              />
+            </div>
+            <div class="directory-info">
+              <span
+                class="directory-title"
+                >Certification
+                Path</span
+              >
+            </div>
+          </a>
+
+          <!-- Card 3: Personal Setup -->
+          <a
+            href="https://github.com/renantmagalhaes/workstation"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="directory-card"
+            id="card-setup"
+          >
+            <div
+              class="directory-img-wrapper"
+            >
+              <img
+                src="images/setup_card.png"
+                alt="Personal Setup"
+                class="directory-img"
+              />
+            </div>
+            <div class="directory-info">
+              <span
+                class="directory-title"
+                >Personal Setup</span
+              >
+            </div>
+          </a>
+
+          <!-- Card 4: Toolbox -->
+          <a
+            href="https://github.com/seclabs-cc/toolbox"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="directory-card"
+            id="card-toolbox"
+          >
+            <div
+              class="directory-img-wrapper"
+            >
+              <img
+                src="images/toolbox_card.png"
+                alt="Toolbox"
+                class="directory-img"
+              />
+            </div>
+            <div class="directory-info">
+              <span
+                class="directory-title"
+                >Toolbox</span
+              >
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Questions Section -->
+      <section
+        class="contact-section"
+        id="contact"
+      >
+        <h2 class="section-title">
+          Questions?
+        </h2>
+        <p class="contact-subtitle">
+          Contact renan@seclabs.cc to
+          get more information about the
+          project
+        </p>
+        <a
+          href="mailto:renan@seclabs.cc"
+          class="contact-btn"
+          id="btn-take-action"
+          >Take action</a
+        >
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-info">
-            <span>[renan@seclabs.cc]</span>
-            <span>|</span>
-            <span><a href="https://github.com/seclabs-cc/" target="_blank" rel="noopener noreferrer" id="footer-github">[GitHub]</a></span>
-            <span>|</span>
-            <span>[Space Sector 2814]</span>
-        </div>
+      <div class="footer-info">
+        <span>[renan@seclabs.cc]</span>
+        <span>|</span>
+        <span
+          ><a
+            href="https://github.com/seclabs-cc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="footer-github"
+            >[GitHub]</a
+          ></span
+        >
+        <span>|</span>
+        <span>[Space Sector 2814]</span>
+      </div>
     </footer>
 
     <script src="theme.js"></script>
-</body>
-
+  </body>
 </html>
