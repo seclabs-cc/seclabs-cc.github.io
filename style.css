@@ -277,15 +277,38 @@ a {
     border: 1px solid var(--border-color);
     border-radius: 10px;
     padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
     transition: var(--transition);
     position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.initiative-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: none;
+    pointer-events: none;
+}
+
+.initiative-card:hover::after {
+    left: 150%;
+    transition: all 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .initiative-info {
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .initiative-name {
@@ -300,16 +323,6 @@ a {
     font-size: 0.95rem;
 }
 
-.initiative-btn {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    background: transparent;
-    transition: var(--transition);
-    font-weight: 600;
-}
-
 /* Card color variations & hover states */
 .initiative-card.red {
     border-left: 4px solid var(--red);
@@ -317,19 +330,11 @@ a {
 .initiative-card.red .initiative-name span {
     color: var(--red);
 }
-.initiative-card.red .initiative-btn {
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: var(--red);
-}
 .initiative-card.red:hover {
-    border-color: rgba(239, 68, 68, 0.4);
-    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.15);
-    transform: translateX(4px);
-}
-.initiative-card.red .initiative-btn:hover {
-    background: var(--red);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    border-color: var(--red);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.22);
+    background: rgba(239, 68, 68, 0.02);
+    transform: translateY(-2px) translateX(4px);
 }
 
 .initiative-card.green {
@@ -338,19 +343,11 @@ a {
 .initiative-card.green .initiative-name span {
     color: var(--green);
 }
-.initiative-card.green .initiative-btn {
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    color: var(--green);
-}
 .initiative-card.green:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
-    transform: translateX(4px);
-}
-.initiative-card.green .initiative-btn:hover {
-    background: var(--green);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    border-color: var(--green);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.22);
+    background: rgba(16, 185, 129, 0.02);
+    transform: translateY(-2px) translateX(4px);
 }
 
 .initiative-card.purple {
@@ -359,19 +356,11 @@ a {
 .initiative-card.purple .initiative-name span {
     color: var(--purple);
 }
-.initiative-card.purple .initiative-btn {
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    color: var(--purple);
-}
 .initiative-card.purple:hover {
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
-    transform: translateX(4px);
-}
-.initiative-card.purple .initiative-btn:hover {
-    background: var(--purple);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    border-color: var(--purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.22);
+    background: rgba(139, 92, 246, 0.02);
+    transform: translateY(-2px) translateX(4px);
 }
 
 /* Open Directories Section */
@@ -823,16 +812,19 @@ a {
     color: #475569;
 }
 [data-theme="light"] .initiative-card.red:hover {
-    border-color: rgba(239, 68, 68, 0.25);
-    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.1);
+    border-color: var(--red);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.18);
+    background: rgba(239, 68, 68, 0.02);
 }
 [data-theme="light"] .initiative-card.green:hover {
-    border-color: rgba(16, 185, 129, 0.25);
-    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.1);
+    border-color: var(--green);
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.18);
+    background: rgba(16, 185, 129, 0.02);
 }
 [data-theme="light"] .initiative-card.purple:hover {
-    border-color: rgba(139, 92, 246, 0.25);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
+    border-color: var(--purple);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.18);
+    background: rgba(139, 92, 246, 0.02);
 }
 
 [data-theme="light"] .directory-card {
