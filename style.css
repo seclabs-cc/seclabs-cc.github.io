@@ -393,176 +393,220 @@ a {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.directory-img-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
-    overflow: hidden;
-    background: var(--bg-darker);
-}
-
-.directory-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition);
-    filter: brightness(0.85);
-}
-
-/* Hover scale and float animation */
-.directory-card:hover .directory-img {
-    transform: scale(1.05);
-    filter: brightness(1.05);
-    animation: floatIcon 3.5s ease-in-out infinite;
-}
-
-.directory-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: var(--transition);
-}
-
-.directory-svg .bg-rect {
-    fill: var(--bg-darker);
-    transition: var(--transition);
-}
-
-.directory-svg .pattern-grid {
-    stroke: var(--border-color);
-    stroke-width: 0.75px;
-    opacity: 0.35;
-    transition: var(--transition);
-}
-
-.directory-svg .icon-main {
-    fill: none;
-    stroke: var(--text-secondary);
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: var(--transition);
-}
-
-.directory-svg .icon-accent {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 2.2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: var(--transition);
-}
-
-.directory-svg .icon-accent-filled {
-    fill: var(--accent);
-    opacity: 0.15;
-    transition: var(--transition);
-}
-
-.directory-card:hover .directory-svg {
-    transform: scale(1.05);
-}
-
-.directory-card:hover .directory-svg .pattern-grid {
-    opacity: 0.65;
-    stroke: var(--accent);
-}
-
-.directory-card:hover .directory-svg .icon-main {
-    stroke: var(--text-primary);
-}
-
-.directory-card:hover .directory-svg .icon-accent {
-    stroke: var(--accent);
-    filter: drop-shadow(0 0 4px rgba(var(--accent-rgb), 0.6));
-}
-
-.directory-card:hover .directory-svg .icon-accent-filled {
-    fill: var(--accent);
-    opacity: 0.25;
-}
-
-.directory-card:hover .directory-svg .animate-float {
-    animation: floatIcon 3.5s ease-in-out infinite;
-    transform-origin: center;
-}
-
-/* Card-Specific Hover Color Themes */
-/* Library (Purple) */
-.directory-card#card-library:hover {
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.22);
-}
-.directory-card#card-library:hover .directory-title {
-    color: var(--purple);
-}
-
-/* Certification Path (Orange) */
-.directory-card#card-certification:hover {
-    border-color: rgba(249, 115, 22, 0.4);
-    box-shadow: 0 12px 30px rgba(249, 115, 22, 0.22);
-}
-.directory-card#card-certification:hover .directory-title {
-    color: var(--orange);
-}
-
-/* Personal Setup (Indigo/Accent) */
-.directory-card#card-setup:hover {
-    border-color: rgba(var(--accent-rgb), 0.4);
-    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.22);
-}
-.directory-card#card-setup:hover .directory-title {
-    color: var(--accent);
-}
-
-/* Toolbox (Green) */
-.directory-card#card-toolbox:hover {
-    border-color: rgba(16, 185, 129, 0.4);
-    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.22);
-}
-.directory-card#card-toolbox:hover .directory-title {
-    color: var(--green);
-}
-
-/* Micro-animations */
-@keyframes floatIcon {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-    100% { transform: translateY(0); }
-}
-
-.directory-info {
-    padding: 1.25rem;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    background: rgba(10, 12, 16, 0.8);
-    flex-grow: 1;
+.directory-body {
+    padding: 1.75rem 1.75rem 1.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0.75rem;
+    flex-grow: 1;
+}
+
+.directory-badge {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(var(--accent-rgb), 0.08);
+    color: var(--accent);
+    border: 1px solid rgba(var(--accent-rgb), 0.15);
+    transition: var(--transition);
 }
 
 .directory-title {
     font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.35rem;
+    font-weight: 800;
     color: var(--text-primary);
+    margin: 0;
     transition: var(--transition);
+}
+
+.directory-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.directory-btn {
+    margin: 0 1.75rem 1.75rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.directory-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.08),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: none;
+}
+
+.directory-btn:hover::after {
+    left: 150%;
+    transition: all 0.75s ease;
+}
+
+.btn-arrow {
+    width: 18px;
+    height: 18px;
+    stroke: var(--text-muted);
+    fill: none;
+    transition: var(--transition);
+}
+
+.directory-btn:hover .btn-arrow {
+    transform: translateX(4px);
+    stroke: currentColor;
+}
+
+/* Card-Specific Hover Color Themes & Button Animations */
+/* Library (Purple) */
+.directory-card#card-library .directory-badge {
+    background: rgba(139, 92, 246, 0.08);
+    color: var(--purple);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.directory-card#card-library:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.22);
+}
+
+.directory-card#card-library:hover .directory-title {
+    color: var(--purple);
+}
+
+#card-library .directory-btn:hover {
+    border-color: var(--purple);
+    background: var(--purple);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+.directory-card#card-library:hover .directory-badge {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Certification Path (Orange) */
+.directory-card#card-certification .directory-badge {
+    background: rgba(249, 115, 22, 0.08);
+    color: var(--orange);
+    border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.directory-card#card-certification:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    box-shadow: 0 12px 30px rgba(249, 115, 22, 0.22);
+}
+
+.directory-card#card-certification:hover .directory-title {
+    color: var(--orange);
+}
+
+#card-certification .directory-btn:hover {
+    border-color: var(--orange);
+    background: var(--orange);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.directory-card#card-certification:hover .directory-badge {
+    background: rgba(249, 115, 22, 0.15);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+/* Personal Setup (Indigo/Accent) */
+.directory-card#card-setup .directory-badge {
+    background: rgba(99, 102, 241, 0.08);
+    color: var(--accent);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.directory-card#card-setup:hover {
+    border-color: rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.22);
+}
+
+.directory-card#card-setup:hover .directory-title {
+    color: var(--accent);
+}
+
+#card-setup .directory-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.directory-card#card-setup:hover .directory-badge {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* Toolbox (Green) */
+.directory-card#card-toolbox .directory-badge {
+    background: rgba(16, 185, 129, 0.08);
+    color: var(--green);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.directory-card#card-toolbox:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.22);
+}
+
+.directory-card#card-toolbox:hover .directory-title {
+    color: var(--green);
+}
+
+#card-toolbox .directory-btn:hover {
+    border-color: var(--green);
+    background: var(--green);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.directory-card#card-toolbox:hover .directory-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.directory-card {
+    border-color: var(--border-color);
 }
 
 .directory-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.18);
-}
-
-.directory-card:hover .directory-title {
-    color: var(--accent);
 }
 
 /* Contact / Questions Section */
@@ -798,15 +842,60 @@ a {
 [data-theme="light"] .directory-card:hover {
     box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.12);
 }
-[data-theme="light"] .directory-info {
-    background: #ffffff;
-    border-top: 1px solid rgba(15, 23, 42, 0.06);
-}
 [data-theme="light"] .directory-title {
     color: #0f172a;
 }
-[data-theme="light"] .directory-card:hover .directory-title {
+[data-theme="light"] .directory-desc {
+    color: #475569;
+}
+[data-theme="light"] .directory-btn {
+    background: rgba(15, 23, 42, 0.02);
+    border-color: rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+}
+[data-theme="light"] .directory-btn::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(15, 23, 42, 0.04),
+        transparent
+    );
+}
+[data-theme="light"] #card-library .directory-btn:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    color: #ffffff;
+}
+[data-theme="light"] .directory-card#card-library:hover .directory-title {
+    color: var(--purple);
+}
+[data-theme="light"] #card-certification .directory-btn:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    color: #ffffff;
+}
+[data-theme="light"] .directory-card#card-certification:hover .directory-title {
+    color: var(--orange);
+}
+[data-theme="light"] #card-setup .directory-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    color: #ffffff;
+}
+[data-theme="light"] .directory-card#card-setup:hover .directory-title {
     color: var(--accent);
+}
+[data-theme="light"] #card-toolbox .directory-btn:hover {
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    color: #ffffff;
+}
+[data-theme="light"] .directory-card#card-toolbox:hover .directory-title {
+    color: var(--green);
 }
 
 [data-theme="light"] .contact-section {
