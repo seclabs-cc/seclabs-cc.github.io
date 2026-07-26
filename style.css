@@ -157,6 +157,53 @@ a {
     animation: fadeInUp 0.8s ease-out;
 }
 
+.rtm-connectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.connector-trace {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 1.25;
+    stroke-linejoin: round;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.rtm-connectors.active .connector-trace {
+    opacity: 0.35;
+}
+
+.connector-pad {
+    fill: var(--accent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.rtm-connectors.active .connector-pad {
+    opacity: 0.8;
+}
+
+.connector-flow {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 4px var(--accent)) drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.rtm-connectors.active .connector-flow {
+    opacity: 0.95;
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 3.5rem;
@@ -859,6 +906,10 @@ a {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.4));
+}
+[data-theme="light"] .connector-flow {
+    stroke: #4f46e5;
+    filter: drop-shadow(0 0 4px rgba(var(--accent-rgb), 0.55)) drop-shadow(0 0 2px #ffffff);
 }
 
 [data-theme="light"] .logo-text {
