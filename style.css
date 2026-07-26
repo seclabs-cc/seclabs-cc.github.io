@@ -181,9 +181,17 @@ a {
 
 .hero-subtitle {
     font-family: var(--font-mono);
-    color: var(--accent);
+    color: var(--text-primary);
     font-size: 1.1rem;
     letter-spacing: 0.1em;
+}
+
+.hero-subtitle .subtitle-initial {
+    display: inline-block;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Main Container */
@@ -783,7 +791,12 @@ a {
     display: inline-block;
 }
 [data-theme="light"] .hero-subtitle {
-    color: var(--accent);
+    color: var(--text-primary);
+}
+[data-theme="light"] .hero-subtitle .subtitle-initial {
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 [data-theme="light"] .logo-text {
