@@ -374,6 +374,11 @@ a {
     color: var(--text-primary);
 }
 
+.mission-highlight {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 /* Initiatives Section */
 .initiatives-container {
     display: flex;
