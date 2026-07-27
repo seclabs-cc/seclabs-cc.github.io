@@ -813,11 +813,22 @@ a {
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .nav-links {
         gap: 1.5rem;
     }
-    
+
+    /* The CV page embeds an iframe with its own header, so keep our
+       own nav as compact as possible to leave more room for it. */
+    .cv-page .navbar {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+    }
+
+    .cv-page .nav-links {
+        display: none;
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
