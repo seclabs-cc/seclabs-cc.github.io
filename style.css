@@ -289,7 +289,7 @@ a {
 }
 
 .hero-subtitle .subtitle-initial {
-    display: inline-block;
+    display: inline;
     font-weight: 700;
     background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
     -webkit-background-clip: text;
