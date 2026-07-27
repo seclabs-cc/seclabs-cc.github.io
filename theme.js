@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
-        
+        document.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
+
         if (theme === 'light') {
             if (sunIcon) sunIcon.style.display = 'none';
             if (moonIcon) moonIcon.style.display = 'block';

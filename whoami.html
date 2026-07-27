@@ -151,7 +151,6 @@
       style="flex-grow: 1; width: 100%"
     >
       <iframe
-        src="https://renantmagalhaes.github.io/"
         class="cv-iframe"
         id="cv-frame"
         title="Renan T. Magalhaes CV"
@@ -159,5 +158,21 @@
     </div>
 
     <script src="theme.js"></script>
+    <script>
+      (function () {
+        const cvFrame = document.getElementById('cv-frame');
+        const cvBaseUrl = 'https://renantmagalhaes.github.io/';
+
+        function setFrameTheme(theme) {
+          cvFrame.src = cvBaseUrl + '?theme=' + theme;
+        }
+
+        setFrameTheme(localStorage.getItem('theme') || 'dark');
+
+        document.addEventListener('themechange', (event) => {
+          setFrameTheme(event.detail.theme);
+        });
+      })();
+    </script>
   </body>
 </html>
