@@ -809,24 +809,16 @@ a {
 /* Responsive styles */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        gap: 1.5rem;
-    }
-
-    /* The CV page embeds an iframe with its own header, so keep our
-       own nav as compact as possible to leave more room for it. */
-    .cv-page .navbar {
         flex-direction: row;
         padding: 0.5rem 1rem;
     }
 
-    .cv-page .nav-links {
-        display: none;
+    .navbar nav {
+        gap: 1rem !important;
+    }
+
+    .nav-links {
+        gap: 1rem;
     }
 
     .hero-title {
